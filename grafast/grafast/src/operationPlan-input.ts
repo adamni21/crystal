@@ -424,9 +424,7 @@ export function withFieldArgsForArguments<
           (!subpath || (Array.isArray(subpath) && subpath.length === 0))
         ) {
           if (isInputObjectType(nullableEntityType)) {
-            for (const fieldName of Object.keys(
-              nullableEntityType.getFields(),
-            )) {
+            for (const fieldName of Object.keys(this.getRaw().eval())) {
               const $target =
                 typeof targetStepOrCallback === "function"
                   ? targetStepOrCallback()
